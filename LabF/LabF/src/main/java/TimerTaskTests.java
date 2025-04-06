@@ -27,7 +27,7 @@ class TimerTaskTests {
 
     @Test
     void buttonConstructorTest() throws InterruptedException, IOException {
-        String port = "/dev/cu.SLAB_USBtoUART"; // modify for your own computer & setup.
+        String port = "/dev/cv.usbserial-0001"; // modify for your own computer & setup.
         ButtonTask b = new ButtonTask(port, 6,4);
         b.stopBoard();
         assertEquals("START", b.getState() );
@@ -35,7 +35,7 @@ class TimerTaskTests {
 
     @Test
     void buttonRunTest() throws InterruptedException, IOException {
-        String port = "/dev/cu.SLAB_USBtoUART"; // modify for your own computer & setup.
+        String port = "/dev/cv.usbserial-0001"; // modify for your own computer & setup.
         ButtonTask b = new ButtonTask(port, 6,4);
         Timer t = new Timer(true);
         t.scheduleAtFixedRate(b, 0, 100);
