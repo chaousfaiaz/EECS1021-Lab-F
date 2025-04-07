@@ -15,6 +15,8 @@ public class ButtonTask extends TimerTask {
     private Pin inputPin; //input pin
     private String state; //string representation of output pin state
 
+
+
     /**
      * ButtonTask constructor.  Initializes input and output
      * pin directly.
@@ -51,9 +53,24 @@ public class ButtonTask extends TimerTask {
      * @param outputPin an integer indicating the ID of the input pin
      */
     ButtonTask(String port, int inputPin, int outputPin) throws IOException {
-        throw new UnsupportedOperationException();//REPLACE THIS
-    }
+         myGroveBoard = new FirmataDevice(port);
 
+        // try to communicate with the board
+        try {
+            myGroveBoard.start(); // start communication with board;
+            myGroveBoard.ensureInitializationIsDone();
+            System.out.println("Board started."); //hopefully we make it here.
+        } catch (Exception ex) { // if not, detail the error.
+            System.out.println("couldn't connect to board.");
+           throw new IOException("Failed to Initialize the board", ex);//no point continuing at this point.
+        }
+        this.inputPin = myGroveBoard.getPin(inputPin);
+this.outputPin = mygroveBoard.getPin(outputpin);
+this.inputPin.setMode(Pin.Mode.INPUT);
+this.outputPin.setMode(Pin.Mode.OUTPUT);
+this.state = "START"; 
+
+        
     /**
      * Stop the Arduino board
      *
@@ -90,6 +107,15 @@ public class ButtonTask extends TimerTask {
      */
     @Override
     public void run() {
-        throw new UnsupportedOperationException();//REPLACE THIS
+      try{
+            long inputValue == inputPin.getValue();//REPLACE THIS
+            outputPin.setValue(inputValue);
+            if(inputValue ==1){ state = "ON");
+                               else{ state = "OFF";}
+            
+    }catch(IOException e){
+            System.out.println("Error during run execution: " + e.getMessage();}
     }
+ //REPLACE THIS
+    
 }
