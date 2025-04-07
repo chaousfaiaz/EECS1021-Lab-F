@@ -15,7 +15,7 @@ public class ExampleArduinoCode {
      */
     public static void main(String[] args) throws IOException {
 
-        String myPort = "/dev/cu.SLAB_USBtoUART"; // modify for your own computer & setup.
+        String myPort = "/dev/cv.usbserial-0001"; // modify for your own computer & setup.
         IODevice myGroveBoard = new FirmataDevice(myPort); // using the name of a port
 
         // try to communicate with the board
