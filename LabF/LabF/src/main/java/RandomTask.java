@@ -18,7 +18,10 @@ public class RandomTask extends TimerTask {
      * @param size
      */
     RandomTask(int size) {
-        throw new UnsupportedOperationException();//REPLACE THIS
+       this.grades = new ArrayList<>() ;
+        for(int i = 0; i<size; i++){
+            this.grades.add("A");//REPLACE THIS
+    }
     }
 
     /**
@@ -46,6 +49,16 @@ public class RandomTask extends TimerTask {
      */
     @Override
     public void run() {
-        throw new UnsupportedOperationException();//REPLACE THIS
+        int min = 1,max = 6;//REPLACE THIS
+        int range = max-min+1;
+        for(int i= 0; i<grades.size();i++){
+            int rand = (int)(Math.random()*range)+min;
+            if(rand == 1){this.grades.set(i,"A");}
+            elseif(rand == 2){this.grades.set(i,"B");}
+             elseif(rand == 3){this.grades.set(i,"C");}
+            elseif(rand == 4){this.grades.set(i,"D");}
+            elseif(rand == 5){this.grades.set(i,"E");}
+            
+            else {this.grades.set(i,"F");}
     }
 }
