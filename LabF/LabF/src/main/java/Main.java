@@ -16,7 +16,7 @@ public class Main {
      */
     public	static	void main(String[]	args) {
 
-        String myPort = "/dev/cu.SLAB_USBtoUART"; // modify for your own computer & setup.
+        String myPort = "/dev/cv.usbserial-0001"; // modify for your own computer & setup.
 
         //demonstrate the random task
         try {
